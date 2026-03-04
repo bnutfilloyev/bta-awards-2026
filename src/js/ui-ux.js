@@ -4,70 +4,7 @@
  */
 
 // ========================================
-// 1. Dark/Light Mode Toggle
-// ========================================
-class ThemeManager {
-  constructor() {
-    this.theme = localStorage.getItem('theme') || 'dark';
-    this.toggleBtn = null;
-    this.init();
-  }
-
-  init() {
-    this.createToggleButton();
-    this.applyTheme();
-    this.listenToSystemChanges();
-  }
-
-  createToggleButton() {
-    const btn = document.createElement('button');
-    btn.className = 'theme-toggle';
-    btn.setAttribute('aria-label', 'Toggle theme');
-    btn.innerHTML = this.getIcon();
-    document.body.appendChild(btn);
-    this.toggleBtn = btn;
-
-    btn.addEventListener('click', () => this.toggle());
-  }
-
-  getIcon() {
-    return this.theme === 'dark' 
-      ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-           <circle cx="12" cy="12" r="5"/>
-           <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-         </svg>`
-      : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-         </svg>`;
-  }
-
-  toggle() {
-    this.theme = this.theme === 'dark' ? 'light' : 'dark';
-    this.applyTheme();
-    localStorage.setItem('theme', this.theme);
-    if (this.toggleBtn) {
-      this.toggleBtn.innerHTML = this.getIcon();
-    }
-  }
-
-  applyTheme() {
-    document.documentElement.setAttribute('data-theme', this.theme);
-    document.body.classList.toggle('light-mode', this.theme === 'light');
-  }
-
-  listenToSystemChanges() {
-    if (!localStorage.getItem('theme')) {
-      const mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
-      mediaQuery.addEventListener('change', (e) => {
-        this.theme = e.matches ? 'light' : 'dark';
-        this.applyTheme();
-      });
-    }
-  }
-}
-
-// ========================================
-// 2. Toast Notification System
+// 1. Toast Notification System
 // ========================================
 class ToastSystem {
   constructor() {
@@ -520,7 +457,6 @@ document.head.appendChild(style);
 // ========================================
 document.addEventListener('DOMContentLoaded', () => {
   // Core systems
-  window.themeManager = new ThemeManager();
   window.toast = new ToastSystem();
   window.bottomNav = new BottomNav();
   window.lazyLoader = new LazyImageLoader();
@@ -537,7 +473,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Export for modules
 export {
-  ThemeManager,
   ToastSystem,
   SkeletonLoader,
   BottomNav,

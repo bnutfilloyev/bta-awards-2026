@@ -3,42 +3,7 @@
    ======================================== */
 
 /* ========================================
-   1. Dark/Light Mode Variables
-   ======================================== */
-:root {
-  --bg-primary: #000000;
-  --bg-secondary: #0a0a0a;
-  --bg-tertiary: #111111;
-  --text-primary: #ffffff;
-  --text-secondary: #9ca3af;
-  --text-muted: #6b7280;
-  --border-color: rgba(255, 255, 255, 0.1);
-  --gold-primary: #C9A962;
-  --gold-light: #D4AF37;
-}
-
-[data-theme="light"] {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f9fafb;
-  --bg-tertiary: #f3f4f6;
-  --text-primary: #111111;
-  --text-secondary: #4b5563;
-  --text-muted: #9ca3af;
-  --border-color: rgba(0, 0, 0, 0.1);
-}
-
-/* Theme Toggle Button */
-.theme-toggle {
-  @apply fixed top-24 right-6 z-50 w-12 h-12 rounded-full bg-gold-500 text-dark-900 
-         flex items-center justify-center shadow-lg transition-transform hover:scale-110;
-}
-
-.theme-toggle svg {
-  @apply w-6 h-6;
-}
-
-/* ========================================
-   2. Micro-interactions
+   1. Micro-interactions
    ======================================== */
 
 /* Button Ripple Effect */
@@ -93,7 +58,7 @@
 }
 
 /* ========================================
-   3. Skeleton Loading
+   2. Skeleton Loading
    ======================================== */
 .skeleton {
   @apply relative overflow-hidden bg-dark-600 rounded;
@@ -133,7 +98,7 @@
 }
 
 /* ========================================
-   4. Toast Notifications
+   3. Toast Notifications
    ======================================== */
 .toast-container {
   @apply fixed top-24 right-6 z-[100] flex flex-col gap-3;
@@ -176,7 +141,7 @@
 }
 
 /* ========================================
-   5. Floating Form Labels
+   4. Floating Form Labels
    ======================================== */
 .floating-input {
   @apply relative;
@@ -203,7 +168,7 @@
 }
 
 /* ========================================
-   6. Bottom Mobile Navigation
+   5. Bottom Mobile Navigation
    ======================================== */
 .bottom-nav {
   @apply fixed bottom-0 left-0 right-0 bg-dark-900/95 backdrop-blur-xl 
@@ -236,7 +201,7 @@
 }
 
 /* ========================================
-   7. Image Lazy Loading with Blur
+   6. Image Lazy Loading with Blur
    ======================================== */
 .blur-load {
   @apply relative overflow-hidden bg-dark-700;
@@ -278,7 +243,7 @@
 }
 
 /* ========================================
-   8. Page Transition Animations
+   7. Page Transition Animations
    ======================================== */
 .page-transition-enter {
   @apply opacity-0 translate-y-4;
@@ -328,7 +293,7 @@
 }
 
 /* ========================================
-   9. Focus States & Accessibility
+   8. Focus States & Accessibility
    ======================================== */
 /* Visible focus ring */
 :focus-visible {
@@ -380,7 +345,7 @@
 }
 
 /* ========================================
-   10. Button Loading States
+   9. Button Loading States
    ======================================== */
 .btn-loading {
   @apply relative pointer-events-none;
