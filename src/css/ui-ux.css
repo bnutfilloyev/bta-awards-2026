@@ -1,0 +1,512 @@
+/* ========================================
+   BTA Awards 2026 - UI/UX Improvements
+   ======================================== */
+
+/* ========================================
+   1. Dark/Light Mode Variables
+   ======================================== */
+:root {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-tertiary: #111111;
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --gold-primary: #C9A962;
+  --gold-light: #D4AF37;
+}
+
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --bg-tertiary: #f3f4f6;
+  --text-primary: #111111;
+  --text-secondary: #4b5563;
+  --text-muted: #9ca3af;
+  --border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  @apply fixed top-24 right-6 z-50 w-12 h-12 rounded-full bg-gold-500 text-dark-900 
+         flex items-center justify-center shadow-lg transition-transform hover:scale-110;
+}
+
+.theme-toggle svg {
+  @apply w-6 h-6;
+}
+
+/* ========================================
+   2. Micro-interactions
+   ======================================== */
+
+/* Button Ripple Effect */
+.btn {
+  @apply relative overflow-hidden;
+}
+
+.btn::after {
+  content: '';
+  @apply absolute inset-0 bg-white/20 rounded-lg opacity-0 transition-opacity;
+}
+
+.btn:active::after {
+  @apply opacity-100;
+}
+
+/* Card Lift Effect */
+.card-hover {
+  @apply transition-all duration-500;
+}
+
+.card-hover:hover {
+  @apply -translate-y-2;
+  box-shadow: 0 25px 50px -12px rgba(201, 169, 98, 0.25);
+}
+
+/* Link Underline Animation */
+.link-underline {
+  @apply relative;
+}
+
+.link-underline::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gold-500 transition-all duration-300;
+}
+
+.link-underline:hover::after {
+  @apply w-full;
+}
+
+/* Image Zoom Effect */
+.img-zoom {
+  @apply overflow-hidden;
+}
+
+.img-zoom img {
+  @apply transition-transform duration-700 ease-out;
+}
+
+.img-zoom:hover img {
+  @apply scale-110;
+}
+
+/* ========================================
+   3. Skeleton Loading
+   ======================================== */
+.skeleton {
+  @apply relative overflow-hidden bg-dark-600 rounded;
+}
+
+.skeleton::after {
+  content: '';
+  @apply absolute inset-0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.skeleton-text {
+  @apply h-4 rounded;
+}
+
+.skeleton-title {
+  @apply h-8 rounded mb-4;
+}
+
+.skeleton-card {
+  @apply h-64 rounded-xl;
+}
+
+.skeleton-circle {
+  @apply w-16 h-16 rounded-full;
+}
+
+/* ========================================
+   4. Toast Notifications
+   ======================================== */
+.toast-container {
+  @apply fixed top-24 right-6 z-[100] flex flex-col gap-3;
+}
+
+.toast {
+  @apply min-w-[300px] max-w-[400px] p-4 rounded-xl shadow-2xl 
+         flex items-center gap-3 transform translate-x-full opacity-0
+         transition-all duration-300;
+}
+
+.toast.show {
+  @apply translate-x-0 opacity-100;
+}
+
+.toast-success {
+  @apply bg-green-500/90 backdrop-blur text-white border border-green-400;
+}
+
+.toast-error {
+  @apply bg-red-500/90 backdrop-blur text-white border border-red-400;
+}
+
+.toast-info {
+  @apply bg-blue-500/90 backdrop-blur text-white border border-blue-400;
+}
+
+.toast-warning {
+  @apply bg-yellow-500/90 backdrop-blur text-dark-900 border border-yellow-400;
+}
+
+.toast-progress {
+  @apply absolute bottom-0 left-0 h-1 bg-white/30 rounded-b-xl;
+  animation: toast-progress 3s linear forwards;
+}
+
+@keyframes toast-progress {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+/* ========================================
+   5. Floating Form Labels
+   ======================================== */
+.floating-input {
+  @apply relative;
+}
+
+.floating-input input,
+.floating-input textarea,
+.floating-input select {
+  @apply w-full bg-dark-700 border border-dark-400 rounded-lg px-4 py-4 text-white
+         focus:border-gold-500 focus:outline-none transition-all placeholder-transparent;
+}
+
+.floating-input label {
+  @apply absolute left-4 top-4 text-gray-400 transition-all pointer-events-none;
+}
+
+.floating-input input:focus ~ label,
+.floating-input input:not(:placeholder-shown) ~ label,
+.floating-input textarea:focus ~ label,
+.floating-input textarea:not(:placeholder-shown) ~ label,
+.floating-input select:focus ~ label,
+.floating-input select:valid ~ label {
+  @apply -top-2.5 text-xs text-gold-500 bg-dark-700 px-2;
+}
+
+/* ========================================
+   6. Bottom Mobile Navigation
+   ======================================== */
+.bottom-nav {
+  @apply fixed bottom-0 left-0 right-0 bg-dark-900/95 backdrop-blur-xl 
+         border-t border-white/10 z-50 lg:hidden pb-safe;
+}
+
+.bottom-nav-inner {
+  @apply flex items-center justify-around py-3 px-4;
+}
+
+.bottom-nav-item {
+  @apply flex flex-col items-center gap-1 text-gray-500 transition-colors;
+}
+
+.bottom-nav-item.active {
+  @apply text-gold-500;
+}
+
+.bottom-nav-item svg {
+  @apply w-6 h-6;
+}
+
+.bottom-nav-item span {
+  @apply text-[10px] font-medium;
+}
+
+/* Active Indicator */
+.bottom-nav-indicator {
+  @apply absolute bottom-0 h-0.5 bg-gold-500 rounded-t-full transition-all duration-300;
+}
+
+/* ========================================
+   7. Image Lazy Loading with Blur
+   ======================================== */
+.blur-load {
+  @apply relative overflow-hidden bg-dark-700;
+}
+
+.blur-load img {
+  @apply opacity-0 transition-opacity duration-500;
+}
+
+.blur-load.loaded img {
+  @apply opacity-100;
+}
+
+.blur-load::before {
+  content: '';
+  @apply absolute inset-0 backdrop-blur-xl bg-dark-700/50 z-10
+         transition-opacity duration-500;
+}
+
+.blur-load.loaded::before {
+  @apply opacity-0 pointer-events-none;
+}
+
+/* Shimmer loading for images */
+.img-shimmer {
+  @apply absolute inset-0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ========================================
+   8. Page Transition Animations
+   ======================================== */
+.page-transition-enter {
+  @apply opacity-0 translate-y-4;
+}
+
+.page-transition-enter-active {
+  @apply opacity-100 translate-y-0 transition-all duration-500;
+}
+
+.page-transition-exit {
+  @apply opacity-100 translate-y-0;
+}
+
+.page-transition-exit-active {
+  @apply opacity-0 -translate-y-4 transition-all duration-300;
+}
+
+/* Slide transitions */
+.slide-up {
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.5s ease forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ========================================
+   9. Focus States & Accessibility
+   ======================================== */
+/* Visible focus ring */
+:focus-visible {
+  @apply outline-none ring-2 ring-gold-500 ring-offset-2 ring-offset-dark-900;
+}
+
+/* Skip to content link */
+.skip-link {
+  @apply absolute -top-full left-4 z-[200] bg-gold-500 text-dark-900 px-4 py-2 
+         rounded-lg font-medium;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  @apply top-4;
+}
+
+/* Screen reader only */
+.sr-only {
+  @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+  clip: rect(0, 0, 0, 0);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .skeleton::after,
+  .img-shimmer {
+    animation: none !important;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .btn {
+    @apply border-2;
+  }
+  
+  :focus-visible {
+    @apply ring-4;
+  }
+}
+
+/* ========================================
+   10. Button Loading States
+   ======================================== */
+.btn-loading {
+  @apply relative pointer-events-none;
+}
+
+.btn-loading .btn-text {
+  @apply opacity-0;
+}
+
+.btn-loading::after {
+  content: '';
+  @apply absolute w-5 h-5 border-2 border-white/30 border-t-white rounded-full;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Success state */
+.btn-success {
+  @apply bg-green-500 pointer-events-none;
+}
+
+.btn-success::after {
+  content: '✓';
+  @apply absolute text-xl;
+  animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+/* Error state */
+.btn-error {
+  @apply bg-red-500;
+  animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* ========================================
+   Additional UX Improvements
+   ======================================== */
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Selection color */
+::selection {
+  @apply bg-gold-500/30 text-white;
+}
+
+/* Custom scrollbar for webkit */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark-700;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gold-500/50 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gold-500;
+}
+
+/* Stagger animation delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* Hover lift effect intensity */
+.hover-lift {
+  @apply transition-transform duration-300;
+}
+
+.hover-lift:hover {
+  @apply -translate-y-1;
+}
+
+/* Glass morphism intensity variants */
+.glass-subtle {
+  @apply bg-white/5 backdrop-blur-lg;
+}
+
+.glass-strong {
+  @apply bg-white/10 backdrop-blur-2xl;
+}
+
+/* Text balance for headings */
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+/* Prevent text selection on interactive elements */
+.btn, .nav-link, .bottom-nav-item {
+  user-select: none;
+}
+
+/* Safe area for notch phones */
+@supports (padding: max(0px)) {
+  .pb-safe {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom)) !important;
+  }
+  
+  .pt-safe {
+    padding-top: max(1rem, env(safe-area-inset-top)) !important;
+  }
+}
