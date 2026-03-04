@@ -8,6 +8,7 @@ const translations = {
     nav: {
       about: "Biz haqimizda",
       pricing: "Tariflar",
+      venue: "Tadbir joyi",
       gallery: "Galereya",
       nominations: "Nominatsiyalar",
       judges: "Hakamlar",
@@ -194,6 +195,7 @@ const translations = {
     nav: {
       about: "О нас",
       pricing: "Тарифы",
+      venue: "Место проведения",
       gallery: "Галерея",
       nominations: "Номинации",
       judges: "Жюри",
@@ -380,6 +382,7 @@ const translations = {
     nav: {
       about: "About Us",
       pricing: "Pricing",
+      venue: "Venue",
       gallery: "Gallery",
       nominations: "Nominations",
       judges: "Judges",
