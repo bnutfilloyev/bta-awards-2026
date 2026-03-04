@@ -16,7 +16,7 @@ const translations = {
       register: "Ro'yxatdan o'tish"
     },
     hero: {
-      year: "2026",
+      year: "18 Aprel 2026",
       title: "BTA",
       subtitle: "AWARDS",
       description: "O'zbekistoning eng nufuzli biznes va texnologiya sohasidagi yillik taqdirlash marosimi",
@@ -203,7 +203,7 @@ const translations = {
       register: "Регистрация"
     },
     hero: {
-      year: "2026",
+      year: "18 Апреля 2026",
       title: "BTA",
       subtitle: "AWARDS",
       description: "Самая престижная ежегодная церемония награждения в сфере бизнеса и технологий Узбекистана",
@@ -390,7 +390,7 @@ const translations = {
       register: "Register"
     },
     hero: {
-      year: "2026",
+      year: "18 April 2026",
       title: "BTA",
       subtitle: "AWARDS",
       description: "Uzbekistan's most prestigious annual awards ceremony in business and technology",
