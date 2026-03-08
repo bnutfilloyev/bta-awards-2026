@@ -100,11 +100,11 @@ class ModalSystem {
       btn.disabled = true;
 
       const formData = {
-        firstname: form.firstname.value,
-        lastname: form.lastname.value,
-        phone: form.phone.value,
-        email: form.email.value,
-        tariff: form.tariff.value,
+        firstname: form.firstname?.value || '',
+        lastname: form.lastname?.value || '',
+        phone: form.phone?.value || '',
+        telegram: form.telegram?.value || '',
+        field: form.field?.value || '',
         company: form.company?.value || ''
       };
 
@@ -171,9 +171,10 @@ class ModalSystem {
       btn.disabled = true;
 
       const formData = {
-        name: form.name.value,
-        email: form.email.value,
-        message: form.message.value
+        name: form.name?.value || '',
+        phone: form.phone?.value || '',
+        field: form.field?.value || '',
+        message: form.message?.value || ''
       };
 
       try {

@@ -19,7 +19,7 @@ const translations = {
       year: "18 Aprel 2026",
       title: "BTA",
       subtitle: "AWARDS",
-      description: "O'zbekistonda ta'lim va tibbiyot sohasidagi N1 taqdirlash marosimi",
+      description: "O’zbekistonda ta’lim va tibbiyot sohasidagi 1-raqamli taqdirlash marosimi",
       stats: {
         years: "Yillik tajriba",
         participants: "Ishtirokchilar",
@@ -32,34 +32,40 @@ const translations = {
       scroll: "Pastga"
     },
     countdown: {
-      label: "Chegirmalar",
-      title: "Vaqtinchalik takliflar",
-      subtitle: "Tariflarga yozilish uchun chegirma muddati",
+      label: "Maxsus Taklif",
+      title: "BTA Awards 2026 uchun maxsus taklif!",
+      subtitle: "Har bir bosqichda narx oshib boradi. Eng yaxshi imkoniyat — hozir.",
       days: "Kun",
       hours: "Soat",
       minutes: "Daqiqa",
       seconds: "Soniya",
       card1: {
-        title: "Super Early Bird",
-        desc: "Eng yuqori chegirma imkoniyati",
-        date: "1-Mart"
+        title: "Erta ro'yxatdan o'tish",
+        desc: "Erta ro'yxatdan o'tganlar uchun maksimal imtiyoz",
+        date: "25-martgacha",
+        discount: "-20%"
       },
       card2: {
-        title: "Early Bird",
-        desc: "O'rta chegirma imkoniyati",
-        date: "20-Mart"
-      },
-      card3: {
-        title: "Regular",
-        desc: "Oxirgi chegirma imkoniyati",
-        date: "1-Aprel"
+        title: "Yakuniy bosqich",
+        desc: "Yakuni yaqinlashmoqda. So'nggi imkoniyat",
+        date: "10-Aprel",
+        discount: "-10%"
       }
     },
     about: {
       label: "Biz haqimizda",
-      title: "BTA Awards 2026",
-      description1: "BTA Awards 2026 — bu O'zbekistoning eng yirik biznes va texnologiya sohasidagi yillik taqdirlash marosimi. Bu yil biz butun O'zbekiston bo'ylab o'tkazamiz va eng yaxshi mutaxassislarni taqdirlaymiz.",
-      description2: "Premiya kommunikatsiya sohasidagi eng dolzarb yo'nalishlarga e'tibor qaratadi: uzoq muddatli rivojlanish, marketing kommunikatsiyalari, korporativ kommunikatsiyalar, shaxsiy yutuqlar va yoshlar hissasi.",
+      title: "BTA Awards",
+      fullTitle: "BTA Awards — bu ta'lim va tibbiyot sohasida faoliyat yuritayotgan fidoyi mutaxassislarni e'tirof etish va ularning mehnatini keng jamoatchilikka tanitish maqsadida tashkil etilgan professional mukofot loyihasidir.",
+      mission: "Bizning asosiy maqsadimiz — o'z ishiga sadoqat bilan yondashayotgan, real natija berayotgan, jamiyat rivojiga hissa qo'shayotgan mutaxassislarni aniqlash va ularni munosib qadrlash.",
+      highlight: "BTA Awards shunchaki mukofot topshirish marosimi emas.",
+      points: [
+        "Bu — professional hamjamiyatni birlashtiruvchi platforma.",
+        "Bu — tajriba almashish, yangi tanishuvlar va hamkorliklar maydoni.",
+        "Bu — shaxsiy brend va professional mavqeini mustahkamlash imkoniyati."
+      ],
+      process: "Loyiha doirasida: Soha vakillari o'z faoliyatini taqdim etadi, mustaqil hakamlar hay'ati tomonidan baholash amalga oshiriladi, eng munosib nomzodlar saralanadi va g'oliblar tantanali marosimda e'lon qilinadi.",
+      principles: "Biz shaffoflik, adolat va professional yondashuv tamoyillariga amal qilamiz. Baholash jarayoni taqdim etilgan ma'lumotlar, real natijalar va kasbiy faoliyat asosida amalga oshiriladi.",
+      closing: "BTA Awards — bu o'z ishiga chin dildan xizmat qilayotgan mutaxassislar uchun e'tirof va yangi bosqich sari qadam.",
       features: {
         professional: {
           title: "Professional tanlov",
@@ -76,20 +82,23 @@ const translations = {
       },
       experience: "Yillik tajriba"
     },
+    venue: {
+      label: "18.04.2026",
+      title: "Tadbir Joyi",
+      subtitle: "Nufuzli restoranda o'tkaziladi",
+      location: "Toshkent",
+      restaurant: "Santini Restaurant",
+      description: "BTA Awards 2026 tantanali marosimi zamonaviy interyer va nufuzli restoranda o'tkaziladi. Qulay joylashuv, professional xizmat ko'rsatish va zamonaviy jihozlar tadbirning yuqori darajada o'tishini ta'minlaydi.",
+      date: "Aprel 2026",
+      startTime: "Boshlanish vaqti",
+      duration: "Tadbir davomiyligi",
+      address: "SANTINI",
+      street: "Chinobod ko'chasi 63, Toshkent"
+    },
     gallery: {
       label: "Galereya",
-      title: "Avvalgi yillardan lavhalar",
-      subtitle: "BTA Awards tadbiri 14 yildan buyon o'tkazib kelinmoqda",
-      years: {
-        2025: "2025 yilgi taqdirlash marosimi. 500+ ishtirokchi. Toshkent, Uzbekistan Expo Center.",
-        2024: "2024 yilgi taqdirlash marosimi. Yangi nominatsiyalar: AI va Digital Innovatsiya.",
-        2023: "2023 yilgi taqdirlash marosimi. Xalqaro hakamlar hay'ati ishtiroki.",
-        2022: "2022 yilgi taqdirlash marosimi. COVIDdan keyin birinchi yirik offlayn tadbir.",
-        2021: "2021 yilgi taqdirlash marosimi. Virtual formatda o'tkazildi.",
-        2020: "2020 yilgi taqdirlash marosimi. Butunjahon pandemiyasi sharoitida.",
-        2019: "2019 yilgi taqdirlash marosimi. BTA Awards 10 yillik yubileyi.",
-        2018: "2018 yilgi taqdirlash marosimi. 100+ ta kompaniya ishtiroki."
-      }
+      title: "Tadbir lavhalari",
+      subtitle: "BTA Awards tadbiri 14 yildan buyon o'tkazib kelinmoqda"
     },
     pricing: {
       label: "Tariflar",
@@ -97,29 +106,48 @@ const translations = {
       subtitle: "O'zingizga mos tarifni tanlang",
       popular: "Mashhur",
       select: "Tanlash",
+      currency: "so'm",
+      until: "gacha",
+      details: "Batafsil ma'lumot",
       silver: {
         name: "ISHTIROKCHI — SILVER",
-        price: "985 000",
-        note: "1-martgacha",
-        features: ["Tadbirida ishtirok", "Sertifikat", "Red Carpet", "Networking"]
+        shortDesc: "Tadbirida ishtirok • Sertifikat • Red Carpet",
+        desc: "Mutaxassis bo'lishni endi boshlayotganlar, mutaxassis bo'lmagan lekin tadbirga qatnashishni istaganlar, mutaxassislarning o'rtog'lari va yaqinlari uchun.",
+        date25: "25-martgacha",
+        date10: "10-aprelgacha",
+        price25: "1 099 000",
+        price10: "1 299 000",
+        features: ["Tadbirida ishtirok", "Sertifikat", "Red Carpet + Networking"]
       },
       gold: {
         name: "NAMINATSIYA — GOLD",
-        price: "1 845 000",
-        note: "1-martgacha",
-        features: ["Silver imkoniyatlar", "Nominatsiyada ishtirok", "Sahna e'tirofi", "Statuetka g'oliblarga"]
+        shortDesc: "Silver + Nominatsiya • Sahna e'tirofi",
+        desc: "O'z sohasida faol mutaxassislar uchun. Nominatsiyaga nomzodlik faqat hakamlar tasdiqlagandan so'ng beriladi.",
+        date25: "25-martgacha",
+        date10: "10-aprelgacha",
+        price25: "2 218 000",
+        price10: "2 460 000",
+        features: ["Silver + Nominatsiya", "Sahna e'tirofi", "Statuetka (g'oliblarga)"]
       },
       pro: {
         name: "PRO",
-        price: "3 670 000",
-        note: "1-martgacha",
-        features: ["Gold imkoniyatlar", "Old qatordan joy", "Rasmiy post", "Premium statuetka"]
+        shortDesc: "Gold + Old qator • Rasmiy post",
+        desc: "O'z shaxsiy brendi va obro'sini kuchaytirmoqchi bo'lgan mutaxassislar uchun.",
+        date25: "25-martgacha",
+        date10: "10-aprelgacha",
+        price25: "4 310 000",
+        price10: "4 920 000",
+        features: ["Gold + Old qator", "Rasmiy post/story", "Premium statuetka"]
       },
       vip: {
         name: "VIP",
-        price: "6 119 000",
-        note: "1-martgacha",
-        features: ["Pro imkoniyatlar", "100% statuetka", "Brend reklamasi", "VIP networking"]
+        shortDesc: "Pro + 100% statuetka • Brend reklamasi",
+        desc: "Soha yetakchilari, markaz egalari va shaxsiy/brend PR'ga e'tibor beruvchilar uchun.",
+        date25: "25-martgacha",
+        date10: "10-aprelgacha",
+        price25: "7 390 000",
+        price10: "8 620 000",
+        features: ["Pro + 100% statuetka", "Brend reklamasi", "VIP networking"]
       }
     },
     ambassador: {
@@ -145,7 +173,34 @@ const translations = {
     judges: {
       label: "Hakamlar",
       title: "Hakamlar hay'ati",
-      subtitle: "Tajribali mutaxassislar va soha yetakchilari"
+      subtitle: "Tajribali mutaxassislar va soha yetakchilari",
+      cards: {
+        sabina: {
+          name: "Sabina Azizova",
+          role: "Asoschi • Logoped",
+          desc: "Logopedi Uzbekistan markazlari asoschisi. Logopediya yo'nalishi bo'yicha nazoratchi."
+        },
+        nasiba: {
+          name: "Nasiba Yakubova",
+          role: "Ambassador • Mentor",
+          desc: "KUMNAMU academy asoschisi. Xalq ta'limi a'lochisi, xalqaro darajadagi mentor."
+        },
+        zuhra: {
+          name: "Zuhra Sattarova",
+          role: "ABA mutaxassisi",
+          desc: "Autizm spektri bo'yicha amaliyotchi. ABA sohasida yetakchi mutaxassis."
+        },
+        abdulaziz: {
+          name: "Abdulaziz Ummatov",
+          role: "Reabilitolog • Ambassador",
+          desc: "Deti Med bosh reabilitologi. 5 yillik tajriba. Xalqaro malaka oshirgan."
+        },
+        madina: {
+          name: "Madina Yuldasheva",
+          role: "Nevrolog • Ambassador",
+          desc: "Shifokor-nevrolog. Kognitiv reabilitatsiya jamoasi rahbari."
+        }
+      }
     },
     contact: {
       label: "Aloqa",
@@ -153,16 +208,16 @@ const translations = {
       subtitle: "Savollaringiz bormi? Bizga murojaat qiling",
       info: {
         phone: "Telefon",
-        email: "Email",
-        address: "Manzil",
+        instagram: "Instagram",
         telegram: "Telegram",
+        address: "Manzil",
         addressValue: "Toshkent, O'zbekiston"
       },
       form: {
-        name: "Ism",
-        email: "Email",
-        subject: "Mavzu",
-        message: "Xabar",
+        name: "Ism familya",
+        phone: "Telefon raqam",
+        field: "Qaysi soha vakilisiz",
+        message: "Xabar / Fikr va takliflar",
         send: "Yuborish"
       }
     },
@@ -183,8 +238,8 @@ const translations = {
         firstname: "Ism",
         lastname: "Familiya",
         phone: "Telefon",
-        email: "Email",
-        tariff: "Tarif",
+        telegram: "Telegram username",
+        field: "Sohangiz / Faoliyat yo'nalishingiz",
         company: "Kompaniya",
         select: "Tanlang",
         submit: "Yuborish"
@@ -219,34 +274,40 @@ const translations = {
       scroll: "Вниз"
     },
     countdown: {
-      label: "Скидки",
-      title: "Временные предложения",
-      subtitle: "Сроки действия скидок на тарифы",
+      label: "Специальное предложение",
+      title: "Специальное предложение для BTA Awards 2026!",
+      subtitle: "Цена растет на каждом этапе. Лучшая возможность — сейчас.",
       days: "Дней",
       hours: "Часов",
       minutes: "Минут",
       seconds: "Секунд",
       card1: {
-        title: "Super Early Bird",
-        desc: "Максимальная скидка",
-        date: "1-Марта"
+        title: "Ранняя регистрация",
+        desc: "Максимальная выгода для ранней регистрации",
+        date: "до 25 марта",
+        discount: "-20%"
       },
       card2: {
-        title: "Early Bird",
-        desc: "Средняя скидка",
-        date: "20-Марта"
-      },
-      card3: {
-        title: "Regular",
-        desc: "Последняя скидка",
-        date: "1-Апреля"
+        title: "Финальный этап",
+        desc: "Финал приближается. Последний шанс",
+        date: "10 Апреля",
+        discount: "-10%"
       }
     },
     about: {
       label: "О нас",
-      title: "BTA Awards 2026",
-      description1: "BTA Awards 2026 — это крупнейшая ежегодная церемония награждения в сфере бизнеса и технологий Узбекистана. В этом году мы проводим мероприятие по всему Узбекистану.",
-      description2: "Премия фокусируется на самых актуальных направлениях в коммуникациях: устойчивое развитие, маркетинговые коммуникации, корпоративные коммуникации.",
+      title: "BTA Awards",
+      fullTitle: "BTA Awards — это профессиональная наградная программа, созданная для признания и популяризации самоотверженных специалистов, работающих в сферах образования и медицины.",
+      mission: "Наша главная цель — выявить и достойно оценить специалистов, которые преданно подходят к своей работе, дают реальные результаты и вносят вклад в развитие общества.",
+      highlight: "BTA Awards — это не просто церемония вручения наград.",
+      points: [
+        "Это — платформа, объединяющая профессиональное сообщество.",
+        "Это — площадка для обмена опытом, новых знакомств и партнерств.",
+        "Это — возможность укрепить личный бренд и профессиональную позицию."
+      ],
+      process: "В рамках проекта: Представители сфер представляют свою деятельность, проводится оценка независимым жюри, отбираются достойнейшие номинанты и победители объявляются на торжественной церемонии.",
+      principles: "Мы придерживаемся принципов прозрачности, справедливости и профессионального подхода. Процесс оценки осуществляется на основе представленных данных, реальных результатов и профессиональной деятельности.",
+      closing: "BTA Awards — это признание для специалистов, которые искренне служат своему делу, и шаг к новому уровню.",
       features: {
         professional: {
           title: "Профессиональный отбор",
@@ -263,20 +324,23 @@ const translations = {
       },
       experience: "Лет опыта"
     },
+    venue: {
+      label: "18.04.2026",
+      title: "Место проведения",
+      subtitle: "Проводится в престижном ресторане",
+      location: "Ташкент",
+      restaurant: "Santini Restaurant",
+      description: "Торжественная церемония BTA Awards 2026 пройдет в современном интерьере престижного ресторана. Удобное расположение, профессиональное обслуживание и современное оборудование обеспечат проведение мероприятия на высшем уровне.",
+      date: "Апрель 2026",
+      startTime: "Время начала",
+      duration: "Длительность мероприятия",
+      address: "SANTINI",
+      street: "ул. Чинобод 63, Ташкент"
+    },
     gallery: {
       label: "Галерея",
-      title: "Моменты прошлых лет",
-      subtitle: "BTA Awards проводится уже 14 лет",
-      years: {
-        2025: "Церемония награждения 2025 года. 500+ участников. Ташкент, Uzbekistan Expo Center.",
-        2024: "Церемония награждения 2024 года. Новые номинации: ИИ и Digital Инновации.",
-        2023: "Церемония награждения 2023 года. Участие международного жюри.",
-        2022: "Церемония награждения 2022 года. Первое крупное офлайн мероприятие после COVID.",
-        2021: "Церемония награждения 2021 года. Проведена в виртуальном формате.",
-        2020: "Церемония награждения 2020 года. В условиях мировой пандемии.",
-        2019: "Церемония награждения 2019 года. 10-летний юбилей BTA Awards.",
-        2018: "Церемония награждения 2018 года. Участие 100+ компаний."
-      }
+      title: "Моменты мероприятия",
+      subtitle: "BTA Awards проводится уже 14 лет"
     },
     pricing: {
       label: "Тарифы",
@@ -284,29 +348,48 @@ const translations = {
       subtitle: "Выберите подходящий тариф",
       popular: "Популярный",
       select: "Выбрать",
+      currency: "сум",
+      until: "до",
+      details: "Подробная информация",
       silver: {
         name: "УЧАСТНИК — SILVER",
-        price: "985 000",
-        note: "До 1 марта",
-        features: ["Участие в мероприятии", "Сертификат", "Red Carpet", "Нетворкинг"]
+        shortDesc: "Участие • Сертификат • Red Carpet",
+        desc: "Для тех, кто только начинает свой путь в профессии, не является специалистом, но хочет принять участие, а также для друзей и близких специалистов.",
+        date25: "25 марта",
+        date10: "10 апреля",
+        price25: "1 099 000",
+        price10: "1 299 000",
+        features: ["Участие в мероприятии", "Сертификат", "Red Carpet + Нетворкинг"]
       },
       gold: {
         name: "НОМИНАНТ — GOLD",
-        price: "1 845 000",
-        note: "До 1 марта",
-        features: ["Возможности Silver", "Участие в номинации", "Признание на сцене", "Статуэтка победителям"]
+        shortDesc: "Silver + Номинация • Признание на сцене",
+        desc: "Для активных специалистов в своей сфере. Кандидатура в номинацию утверждается только после одобрения жюри.",
+        date25: "25 марта",
+        date10: "10 апреля",
+        price25: "2 218 000",
+        price10: "2 460 000",
+        features: ["Silver + Номинация", "Признание на сцене", "Статуэтка (победителям)"]
       },
       pro: {
         name: "PRO",
-        price: "3 670 000",
-        note: "До 1 марта",
-        features: ["Возможности Gold", "Место в первом ряду", "Пост на официальной странице", "Премиум статуэтка"]
+        shortDesc: "Gold + Первый ряд • Пост в соцсетях",
+        desc: "Для специалистов, которые хотят укрепить свой личный бренд и репутацию.",
+        date25: "25 марта",
+        date10: "10 апреля",
+        price25: "4 310 000",
+        price10: "4 920 000",
+        features: ["Gold + Первый ряд", "Пост/сторис в соцсетях", "Премиум статуэтка"]
       },
       vip: {
         name: "VIP",
-        price: "6 119 000",
-        note: "До 1 марта",
-        features: ["Возможности Pro", "100% статуэтка", "Реклама бренда", "VIP нетворкинг"]
+        shortDesc: "Pro + 100% статуэтка • Реклама бренда",
+        desc: "Для лидеров отрасли, владельцев центров и тех, кто уделяет внимание личному/брендовому PR.",
+        date25: "25 марта",
+        date10: "10 апреля",
+        price25: "7 390 000",
+        price10: "8 620 000",
+        features: ["Pro + 100% статуэтка", "Реклама бренда", "VIP нетворкинг"]
       }
     },
     ambassador: {
@@ -332,7 +415,34 @@ const translations = {
     judges: {
       label: "Жюри",
       title: "Состав жюри",
-      subtitle: "Опытные специалисты и лидеры отрасли"
+      subtitle: "Опытные специалисты и лидеры отрасли",
+      cards: {
+        sabina: {
+          name: "Сабина Азизова",
+          role: "Основатель • Логопед",
+          desc: "Основатель центров Логопеди Узбекистан. Куратор направления логопедии."
+        },
+        nasiba: {
+          name: "Насиба Якубова",
+          role: "Амбассадор • Ментор",
+          desc: "Основатель KUMNAMU academy. Отличник народного образования, международный ментор."
+        },
+        zuhra: {
+          name: "Зухра Саттарова",
+          role: "ABA специалист",
+          desc: "Практик по аутизму. Ведущий специалист в области ABA."
+        },
+        abdulaziz: {
+          name: "Абдулазиз Умматов",
+          role: "Реабилитолог • Амбассадор",
+          desc: "Главный реабилитолог Deti Med. 5 лет опыта. Стажировался за рубежом."
+        },
+        madina: {
+          name: "Мадина Юлдашева",
+          role: "Невролог • Амбассадор",
+          desc: "Врач-невролог. Руководитель команды когнитивной реабилитации."
+        }
+      }
     },
     contact: {
       label: "Контакты",
@@ -340,16 +450,16 @@ const translations = {
       subtitle: "Есть вопросы? Обратитесь к нам",
       info: {
         phone: "Телефон",
-        email: "Email",
-        address: "Адрес",
+        instagram: "Instagram",
         telegram: "Telegram",
+        address: "Адрес",
         addressValue: "Ташкент, Узбекистан"
       },
       form: {
-        name: "Имя",
-        email: "Email",
-        subject: "Тема",
-        message: "Сообщение",
+        name: "Имя фамилия",
+        phone: "Номер телефона",
+        field: "Представитель какой сферы",
+        message: "Сообщение / Отзывы и предложения",
         send: "Отправить"
       }
     },
@@ -370,8 +480,8 @@ const translations = {
         firstname: "Имя",
         lastname: "Фамилия",
         phone: "Телефон",
-        email: "Email",
-        tariff: "Тариф",
+        telegram: "Telegram username",
+        field: "Ваша сфера / Направление деятельности",
         company: "Компания",
         select: "Выберите",
         submit: "Отправить"
@@ -406,34 +516,40 @@ const translations = {
       scroll: "Scroll Down"
     },
     countdown: {
-      label: "Discounts",
-      title: "Limited Time Offers",
-      subtitle: "Discount deadlines for tariff registration",
+      label: "Special Offer",
+      title: "Special offer for BTA Awards 2026!",
+      subtitle: "Price increases at each stage. Best opportunity is now.",
       days: "Days",
       hours: "Hours",
       minutes: "Minutes",
       seconds: "Seconds",
       card1: {
-        title: "Super Early Bird",
-        desc: "Highest discount available",
-        date: "March 1"
+        title: "Early Registration",
+        desc: "Maximum benefit for early registrants",
+        date: "until March 25",
+        discount: "-20%"
       },
       card2: {
-        title: "Early Bird",
-        desc: "Medium discount available",
-        date: "March 20"
-      },
-      card3: {
-        title: "Regular",
-        desc: "Last discount opportunity",
-        date: "April 1"
+        title: "Final Stage",
+        desc: "Final is approaching. Last chance",
+        date: "April 10",
+        discount: "-10%"
       }
     },
     about: {
       label: "About Us",
-      title: "BTA Awards 2026",
-      description1: "BTA Awards 2026 is Uzbekistan's largest annual awards ceremony in business and technology. This year we are holding the event throughout Uzbekistan.",
-      description2: "The award focuses on the most relevant areas in communications: sustainable development, marketing communications, corporate communications.",
+      title: "BTA Awards",
+      fullTitle: "BTA Awards is a professional awards program created to recognize and promote dedicated professionals working in education and healthcare, and to showcase their work to the wider community.",
+      mission: "Our main goal is to identify and duly appreciate professionals who are dedicated to their work, deliver real results, and contribute to the development of society.",
+      highlight: "BTA Awards is not just an awards ceremony.",
+      points: [
+        "It is a platform that unites the professional community.",
+        "It is a venue for exchanging experience, new acquaintances and partnerships.",
+        "It is an opportunity to strengthen personal brand and professional standing."
+      ],
+      process: "Within the project: Industry representatives present their activities, evaluation is carried out by an independent jury, the most worthy nominees are selected and winners are announced at a gala ceremony.",
+      principles: "We adhere to the principles of transparency, fairness and professional approach. The evaluation process is carried out on the basis of submitted data, real results and professional activities.",
+      closing: "BTA Awards is recognition for professionals who truly serve their cause, and a step towards a new level.",
       features: {
         professional: {
           title: "Professional Selection",
@@ -450,20 +566,23 @@ const translations = {
       },
       experience: "Years Experience"
     },
+    venue: {
+      label: "18.04.2026",
+      title: "Event Venue",
+      subtitle: "Held in a prestigious restaurant",
+      location: "Tashkent",
+      restaurant: "Santini Restaurant",
+      description: "The BTA Awards 2026 gala ceremony will be held in a modern interior of a prestigious restaurant. Convenient location, professional service and modern equipment will ensure the event is held at the highest level.",
+      date: "April 2026",
+      startTime: "Start time",
+      duration: "Event duration",
+      address: "SANTINI",
+      street: "63 Chinobod str., Tashkent"
+    },
     gallery: {
       label: "Gallery",
-      title: "Moments from Previous Years",
-      subtitle: "BTA Awards has been held for 14 years",
-      years: {
-        2025: "2025 Awards Ceremony. 500+ participants. Tashkent, Uzbekistan Expo Center.",
-        2024: "2024 Awards Ceremony. New nominations: AI and Digital Innovation.",
-        2023: "2023 Awards Ceremony. International jury participation.",
-        2022: "2022 Awards Ceremony. First major offline event after COVID.",
-        2021: "2021 Awards Ceremony. Held in virtual format.",
-        2020: "2020 Awards Ceremony. During the global pandemic.",
-        2019: "2019 Awards Ceremony. 10th anniversary of BTA Awards.",
-        2018: "2018 Awards Ceremony. 100+ companies participated."
-      }
+      title: "Event Moments",
+      subtitle: "BTA Awards has been held for 14 years"
     },
     pricing: {
       label: "Pricing",
@@ -471,29 +590,48 @@ const translations = {
       subtitle: "Choose the right tariff for you",
       popular: "Popular",
       select: "Select",
+      currency: "uzs",
+      until: "until",
+      details: "More details",
       silver: {
         name: "PARTICIPANT — SILVER",
-        price: "985 000",
-        note: "Until March 1",
-        features: ["Event participation", "Certificate", "Red Carpet", "Networking"]
+        shortDesc: "Participation • Certificate • Red Carpet",
+        desc: "For those just starting their professional journey, non-specialists who want to attend, and friends and relatives of specialists.",
+        date25: "March 25",
+        date10: "April 10",
+        price25: "1 099 000",
+        price10: "1 299 000",
+        features: ["Event participation", "Certificate", "Red Carpet + Networking"]
       },
       gold: {
         name: "NOMINEE — GOLD",
-        price: "1 845 000",
-        note: "Until March 1",
-        features: ["Silver features", "Nomination participation", "Stage recognition", "Trophy for winners"]
+        shortDesc: "Silver + Nomination • Stage recognition",
+        desc: "For active professionals in their field. Nomination candidacy is granted only after jury approval.",
+        date25: "March 25",
+        date10: "April 10",
+        price25: "2 218 000",
+        price10: "2 460 000",
+        features: ["Silver + Nomination", "Stage recognition", "Trophy (winners)"]
       },
       pro: {
         name: "PRO",
-        price: "3 670 000",
-        note: "Until March 1",
-        features: ["Gold features", "Front row seat", "Official page post", "Premium trophy"]
+        shortDesc: "Gold + Front row • Social media post",
+        desc: "For professionals who want to strengthen their personal brand and reputation.",
+        date25: "March 25",
+        date10: "April 10",
+        price25: "4 310 000",
+        price10: "4 920 000",
+        features: ["Gold + Front row", "Official post/story", "Premium trophy"]
       },
       vip: {
         name: "VIP",
-        price: "6 119 000",
-        note: "Until March 1",
-        features: ["Pro features", "100% trophy", "Brand advertising", "VIP networking"]
+        shortDesc: "Pro + 100% trophy • Brand advertising",
+        desc: "For industry leaders, center owners and those who focus on personal/brand PR.",
+        date25: "March 25",
+        date10: "April 10",
+        price25: "7 390 000",
+        price10: "8 620 000",
+        features: ["Pro + 100% trophy", "Brand advertising", "VIP networking"]
       }
     },
     ambassador: {
@@ -519,7 +657,34 @@ const translations = {
     judges: {
       label: "Judges",
       title: "Jury Panel",
-      subtitle: "Experienced specialists and industry leaders"
+      subtitle: "Experienced specialists and industry leaders",
+      cards: {
+        sabina: {
+          name: "Sabina Azizova",
+          role: "Founder • Speech Therapist",
+          desc: "Founder of Logopedi Uzbekistan centers. Curator of speech therapy direction."
+        },
+        nasiba: {
+          name: "Nasiba Yakubova",
+          role: "Ambassador • Mentor",
+          desc: "Founder of KUMNAMU academy. Honored education worker, international mentor."
+        },
+        zuhra: {
+          name: "Zuhra Sattarova",
+          role: "ABA Specialist",
+          desc: "Autism spectrum practitioner. Leading specialist in ABA field."
+        },
+        abdulaziz: {
+          name: "Abdulaziz Ummatov",
+          role: "Rehabilitologist • Ambassador",
+          desc: "Chief rehabilitologist at Deti Med. 5 years experience. Interned abroad."
+        },
+        madina: {
+          name: "Madina Yuldasheva",
+          role: "Neurologist • Ambassador",
+          desc: "Physician-neurologist. Head of cognitive rehabilitation team."
+        }
+      }
     },
     contact: {
       label: "Contact",
@@ -527,16 +692,16 @@ const translations = {
       subtitle: "Have questions? Contact us",
       info: {
         phone: "Phone",
-        email: "Email",
-        address: "Address",
+        instagram: "Instagram",
         telegram: "Telegram",
+        address: "Address",
         addressValue: "Tashkent, Uzbekistan"
       },
       form: {
-        name: "Name",
-        email: "Email",
-        subject: "Subject",
-        message: "Message",
+        name: "Full name",
+        phone: "Phone number",
+        field: "Which field do you represent",
+        message: "Message / Feedback and suggestions",
         send: "Send"
       }
     },
@@ -557,8 +722,8 @@ const translations = {
         firstname: "First Name",
         lastname: "Last Name",
         phone: "Phone",
-        email: "Email",
-        tariff: "Tariff",
+        telegram: "Telegram username",
+        field: "Your field / Area of expertise",
         company: "Company",
         select: "Select",
         submit: "Submit"
@@ -590,27 +755,27 @@ class I18n {
 
   setLanguage(lang) {
     if (!translations[lang]) return;
-    
+
     this.currentLang = lang;
     localStorage.setItem('bta-language', lang);
     document.documentElement.lang = lang;
-    
+
     // Update active button
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('bg-gold-500', btn.dataset.lang === lang);
       btn.classList.toggle('text-dark-900', btn.dataset.lang === lang);
       btn.classList.toggle('text-gray-400', btn.dataset.lang !== lang);
     });
-    
+
     this.updatePage();
-    
+
     // Trigger event for other components
     window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
   }
 
   updatePage() {
     const t = translations[this.currentLang];
-    
+
     // Update all elements with data-i18n attribute
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.dataset.i18n;

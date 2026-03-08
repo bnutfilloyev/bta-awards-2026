@@ -6,8 +6,12 @@
 import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { inject } from '@vercel/analytics';
 import './i18n.js';
 import './modals.js';
+
+// Initialize Vercel Analytics
+inject();
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,6 +28,7 @@ const Security = {
 
   // Sanitize HTML
   sanitizeHTML(str) {
+    if (!str || typeof str !== 'string') return '';
     const div = document.createElement('div');
     div.textContent = str;
     return div.innerHTML;
@@ -82,13 +87,13 @@ let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
   const currentScroll = window.scrollY;
-  
+
   if (currentScroll > 100) {
     navbar.classList.add('bg-dark-900/95', 'backdrop-blur-xl');
   } else {
     navbar.classList.remove('bg-dark-900/95', 'backdrop-blur-xl');
   }
-  
+
   lastScroll = currentScroll;
 }, { passive: true });
 
@@ -126,31 +131,31 @@ class ParticleSystem {
   constructor(canvasId) {
     this.canvas = document.getElementById(canvasId);
     if (!this.canvas) return;
-    
+
     this.ctx = this.canvas.getContext('2d');
     this.particles = [];
     this.maxParticles = window.innerWidth < 768 ? 25 : 50;
     this.isActive = true;
-    
+
     this.init();
   }
-  
+
   init() {
     this.resize();
     window.addEventListener('resize', () => this.resize(), { passive: true });
-    
+
     for (let i = 0; i < this.maxParticles; i++) {
       this.particles.push(this.createParticle());
     }
-    
+
     this.animate();
   }
-  
+
   resize() {
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
   }
-  
+
   createParticle() {
     return {
       x: Math.random() * this.canvas.width,
@@ -161,27 +166,27 @@ class ParticleSystem {
       opacity: Math.random() * 0.5 + 0.1
     };
   }
-  
+
   animate() {
     if (!this.isActive) return;
-    
+
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    
+
     this.particles.forEach(p => {
       p.x += p.speedX;
       p.y += p.speedY;
-      
+
       if (p.x < 0) p.x = this.canvas.width;
       if (p.x > this.canvas.width) p.x = 0;
       if (p.y < 0) p.y = this.canvas.height;
       if (p.y > this.canvas.height) p.y = 0;
-      
+
       this.ctx.beginPath();
       this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
       this.ctx.fillStyle = `rgba(201, 169, 98, ${p.opacity})`;
       this.ctx.fill();
     });
-    
+
     requestAnimationFrame(() => this.animate());
   }
 }
@@ -195,28 +200,28 @@ class CountdownTimer {
     this.elements = elements;
     this.init();
   }
-  
+
   init() {
     this.update();
     setInterval(() => this.update(), 1000);
   }
-  
+
   update() {
     const now = new Date().getTime();
     const distance = this.targetDate - now;
-    
+
     if (distance < 0) {
       Object.values(this.elements).forEach(el => {
         if (el) el.textContent = '00';
       });
       return;
     }
-    
+
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
+
     if (this.elements.days) this.elements.days.textContent = String(days).padStart(2, '0');
     if (this.elements.hours) this.elements.hours.textContent = String(hours).padStart(2, '0');
     if (this.elements.minutes) this.elements.minutes.textContent = String(minutes).padStart(2, '0');
@@ -226,29 +231,161 @@ class CountdownTimer {
 
 // Initialize countdowns
 document.addEventListener('DOMContentLoaded', () => {
-  // March 1, 2026
-  new CountdownTimer('2026-03-01T00:00:00', {
+  // March 25, 2026 (25-martgacha) - 20% discount
+  new CountdownTimer('2026-03-25T00:00:00', {
     days: document.querySelector('.countdown-days'),
     hours: document.querySelector('.countdown-hours'),
     minutes: document.querySelector('.countdown-minutes'),
     seconds: document.querySelector('.countdown-seconds')
   });
-  
-  // March 20, 2026
-  new CountdownTimer('2026-03-20T00:00:00', {
+
+  // April 10, 2026 (10-Aprel) - 10% discount
+  new CountdownTimer('2026-04-10T00:00:00', {
     days: document.querySelector('.countdown-days-2'),
     hours: document.querySelector('.countdown-hours-2'),
     minutes: document.querySelector('.countdown-minutes-2'),
     seconds: document.querySelector('.countdown-seconds-2')
   });
-  
-  // April 1, 2026
-  new CountdownTimer('2026-04-01T00:00:00', {
-    days: document.querySelector('.countdown-days-3'),
-    hours: document.querySelector('.countdown-hours-3'),
-    minutes: document.querySelector('.countdown-minutes-3'),
-    seconds: document.querySelector('.countdown-seconds-3')
-  });
+});
+
+// ========================================
+// Gallery Carousel
+// ========================================
+class GalleryCarousel {
+  constructor() {
+    this.track = document.getElementById('gallery-track');
+    this.prevBtn = document.getElementById('gallery-prev');
+    this.nextBtn = document.getElementById('gallery-next');
+    this.dotsContainer = document.getElementById('gallery-dots');
+
+    if (!this.track) return;
+
+    this.slides = this.track.querySelectorAll('.gallery-slide');
+    this.currentIndex = 0;
+    this.totalSlides = this.slides.length;
+    this.autoplayInterval = null;
+    this.autoplayDelay = 4000;
+
+    this.init();
+  }
+
+  init() {
+    this.createDots();
+    this.dots = this.dotsContainer.querySelectorAll('.gallery-dot');
+    this.bindEvents();
+    this.startAutoplay();
+    this.updateCarousel();
+  }
+
+  createDots() {
+    if (!this.dotsContainer) return;
+    this.dotsContainer.innerHTML = '';
+    for (let i = 0; i < this.totalSlides; i++) {
+      const dot = document.createElement('button');
+      dot.className = `gallery-dot w-2 h-2 rounded-full transition-all duration-300 ${i === 0 ? 'bg-gold-500 w-8' : 'bg-gray-600 hover:bg-gray-400'}`;
+      dot.addEventListener('click', () => this.goToSlide(i));
+      this.dotsContainer.appendChild(dot);
+    }
+  }
+
+  bindEvents() {
+    if (this.prevBtn) {
+      this.prevBtn.addEventListener('click', () => {
+        this.stopAutoplay();
+        this.prev();
+        this.startAutoplay();
+      });
+    }
+
+    if (this.nextBtn) {
+      this.nextBtn.addEventListener('click', () => {
+        this.stopAutoplay();
+        this.next();
+        this.startAutoplay();
+      });
+    }
+
+    // Touch/Swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    this.track.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      this.stopAutoplay();
+    }, { passive: true });
+
+    this.track.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      this.handleSwipe(touchStartX, touchEndX);
+      this.startAutoplay();
+    }, { passive: true });
+
+    // Pause on hover
+    const container = this.track.closest('.gallery-carousel');
+    if (container) {
+      container.addEventListener('mouseenter', () => this.stopAutoplay());
+      container.addEventListener('mouseleave', () => this.startAutoplay());
+    }
+  }
+
+  handleSwipe(startX, endX) {
+    const diff = startX - endX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        this.next();
+      } else {
+        this.prev();
+      }
+    }
+  }
+
+  goToSlide(index) {
+    this.currentIndex = index;
+    this.updateCarousel();
+  }
+
+  next() {
+    this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
+    this.updateCarousel();
+  }
+
+  prev() {
+    this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
+    this.updateCarousel();
+  }
+
+  updateCarousel() {
+    if (this.track) {
+      this.track.style.transform = `translateX(-${this.currentIndex * 100}%)`;
+    }
+
+    if (this.dots) {
+      this.dots.forEach((dot, index) => {
+        if (index === this.currentIndex) {
+          dot.className = 'gallery-dot w-8 h-2 rounded-full bg-gold-500 transition-all duration-300';
+        } else {
+          dot.className = 'gallery-dot w-2 h-2 rounded-full bg-gray-600 hover:bg-gray-400 transition-all duration-300';
+        }
+      });
+    }
+  }
+
+  startAutoplay() {
+    this.stopAutoplay();
+    this.autoplayInterval = setInterval(() => this.next(), this.autoplayDelay);
+  }
+
+  stopAutoplay() {
+    if (this.autoplayInterval) {
+      clearInterval(this.autoplayInterval);
+      this.autoplayInterval = null;
+    }
+  }
+}
+
+// Initialize Gallery Carousel
+document.addEventListener('DOMContentLoaded', () => {
+  new GalleryCarousel();
 });
 
 // ========================================
@@ -257,11 +394,11 @@ document.addEventListener('DOMContentLoaded', () => {
 function hideLoader() {
   const loader = document.getElementById('loader');
   if (!loader) return;
-  
+
   // CSS fallback
   loader.style.opacity = '0';
   loader.style.transition = 'opacity 0.5s ease';
-  
+
   setTimeout(() => {
     loader.style.display = 'none';
   }, 500);
@@ -274,10 +411,10 @@ function hideLoader() {
 document.addEventListener('DOMContentLoaded', () => {
   const loader = document.getElementById('loader');
   const loaderBar = document.getElementById('loader-bar');
-  
+
   // Fallback: always hide loader after 3 seconds max
   const fallbackTimeout = setTimeout(hideLoader, 3000);
-  
+
   try {
     // Animate loader bar
     if (loaderBar && gsap) {
@@ -315,7 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Reveal animations
 const revealElements = document.querySelectorAll('.reveal');
 revealElements.forEach((el, i) => {
-  gsap.fromTo(el, 
+  gsap.fromTo(el,
     { opacity: 0, y: 30 },
     {
       opacity: 1,
@@ -328,8 +465,8 @@ revealElements.forEach((el, i) => {
         toggleActions: 'play none none none'
       },
       delay: el.classList.contains('animate-delay-100') ? 0.1 :
-              el.classList.contains('animate-delay-200') ? 0.2 :
-              el.classList.contains('animate-delay-300') ? 0.3 : 0
+        el.classList.contains('animate-delay-200') ? 0.2 :
+          el.classList.contains('animate-delay-300') ? 0.3 : 0
     }
   );
 });
@@ -337,7 +474,7 @@ revealElements.forEach((el, i) => {
 // ========================================
 // Modal System
 // ========================================
-window.openModal = function(type) {
+window.openModal = function (type) {
   console.log('Opening modal:', type);
   // Modal implementation would go here
 };
@@ -348,7 +485,7 @@ window.openModal = function(type) {
 const TelegramAPI = {
   async sendForm(formType, formData) {
     const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content;
-    
+
     try {
       const response = await fetch('/api/telegram', {
         method: 'POST',
@@ -361,7 +498,7 @@ const TelegramAPI = {
           data: formData
         })
       });
-      
+
       if (!response.ok) throw new Error('Failed to send');
       return await response.json();
     } catch (error) {
@@ -377,25 +514,20 @@ const TelegramAPI = {
 function handleFormSubmit(form, formType) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     const formData = new FormData(form);
     const data = {};
-    
+
     formData.forEach((value, key) => {
       data[key] = Security.sanitizeHTML(value);
     });
-    
+
     // Validation
-    if (data.email && !Security.validateEmail(data.email)) {
-      alert('Email noto\'g\'ri formatda');
-      return;
-    }
-    
     if (data.phone && !Security.validatePhone(data.phone)) {
       alert('Telefon noto\'g\'ri formatda');
       return;
     }
-    
+
     try {
       await TelegramAPI.sendForm(formType, data);
       form.reset();
@@ -418,12 +550,12 @@ class AmbassadorCalculator {
     this.commissionEl = document.getElementById('calc-commission');
     this.levelEl = document.getElementById('calc-level');
     this.benefitsEl = document.getElementById('calc-benefits');
-    
+
     if (!this.silverInput) return;
-    
+
     this.init();
   }
-  
+
   init() {
     const inputs = [this.silverInput, this.goldInput, this.proInput, this.vipInput];
     inputs.forEach(input => {
@@ -431,19 +563,19 @@ class AmbassadorCalculator {
     });
     this.calculate();
   }
-  
+
   calculate() {
     const silver = parseInt(this.silverInput?.value) || 0;
     const gold = parseInt(this.goldInput?.value) || 0;
     const pro = parseInt(this.proInput?.value) || 0;
     const vip = parseInt(this.vipInput?.value) || 0;
-    
+
     const total = silver + gold + pro + vip;
     const commission = silver * 50000 + gold * 150000 + pro * 300000 + vip * 500000;
-    
+
     let level = "Boshlang'ich";
     let benefits = "5 ta ishtirokchi olib kelsangiz → Ambassador + Silver bepul";
-    
+
     if (total >= 10 && gold >= 10 && pro >= 2 && vip >= 1) {
       level = "Super Ambassador";
       benefits = "🎉 Statuetka + Sovg'a + Taqdirlash! (10+ Gold, 2+ Pro, 1+ VIP)";
@@ -457,7 +589,7 @@ class AmbassadorCalculator {
       level = "Ambassador";
       benefits = "🎁 Silver tarifi bepul! (5+ ishtirokchi)";
     }
-    
+
     if (this.commissionEl) {
       this.commissionEl.textContent = `${commission.toLocaleString()} so'm`;
     }
@@ -476,7 +608,7 @@ class AmbassadorCalculator {
 function initBackToTop() {
   const btn = document.getElementById('back-to-top');
   if (!btn) return;
-  
+
   window.addEventListener('scroll', () => {
     if (window.pageYOffset > 500) {
       btn.classList.remove('opacity-0', 'invisible');
@@ -486,7 +618,7 @@ function initBackToTop() {
       btn.classList.remove('opacity-100', 'visible');
     }
   }, { passive: true });
-  
+
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
@@ -498,13 +630,13 @@ function initBackToTop() {
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize particles
   new ParticleSystem('particles');
-  
+
   // Initialize calculator
   new AmbassadorCalculator();
-  
+
   // Initialize back to top
   initBackToTop();
-  
+
   // Initialize forms
   document.querySelectorAll('form').forEach(form => {
     const formType = form.dataset.type;

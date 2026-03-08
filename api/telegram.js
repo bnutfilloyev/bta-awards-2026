@@ -53,8 +53,8 @@ function formatMessage(formType, data, timestamp, ip) {
 
 👤 <b>Ism:</b> ${escapedData.firstname || ''} ${escapedData.lastname || ''}
 📞 <b>Telefon:</b> ${escapedData.phone || ''}
-📧 <b>Email:</b> ${escapedData.email || ''}
-💎 <b>Tarif:</b> ${escapedData.tariff?.toUpperCase() || ''}
+💬 <b>Telegram:</b> ${escapedData.telegram || 'Kiritilmagan'}
+🎯 <b>Soha:</b> ${escapedData.field || ''}
 🏢 <b>Kompaniya:</b> ${escapedData.company || 'Kiritilmagan'}
 
 🌐 <b>IP:</b> ${ip}
@@ -89,14 +89,14 @@ ${escapedData.motivation || ''}
       
     case 'contact':
       message = `
-📨 <b>YANGI XABAR</b>
+📨 <b>YANGI ALOQA XABARI</b>
 
 👤 <b>Ism:</b> ${escapedData.name || ''}
-📧 <b>Email:</b> ${escapedData.email || ''}
-📌 <b>Mavzu:</b> ${escapedData.subject || ''}
+📞 <b>Telefon:</b> ${escapedData.phone || ''}
+🎯 <b>Soha:</b> ${escapedData.field || ''}
 
 💬 <b>Xabar:</b>
-${escapedData.message || ''}
+${escapedData.message || 'Kiritilmagan'}
 
 🌐 <b>IP:</b> ${ip}
 ⏰ <b>Sana:</b> ${timestamp}
