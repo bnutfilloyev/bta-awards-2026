@@ -19,7 +19,7 @@ const translations = {
       year: "18 Aprel 2026",
       title: "BTA",
       subtitle: "AWARDS",
-      description: "O'zbekistoning eng nufuzli biznes va texnologiya sohasidagi yillik taqdirlash marosimi",
+      description: "O'zbekistonda ta'lim va tibbiyot sohasidagi N1 taqdirlash marosimi",
       stats: {
         years: "Yillik tajriba",
         participants: "Ishtirokchilar",
@@ -206,7 +206,7 @@ const translations = {
       year: "18 Апреля 2026",
       title: "BTA",
       subtitle: "AWARDS",
-      description: "Самая престижная ежегодная церемония награждения в сфере бизнеса и технологий Узбекистана",
+      description: "Церемония награждения №1 в сфере образования и медицины в Узбекистане",
       stats: {
         years: "Лет опыта",
         participants: "Участников",
@@ -393,7 +393,7 @@ const translations = {
       year: "18 April 2026",
       title: "BTA",
       subtitle: "AWARDS",
-      description: "Uzbekistan's most prestigious annual awards ceremony in business and technology",
+      description: "Uzbekistan's #1 Awards Ceremony in Education and Healthcare",
       stats: {
         years: "Years Experience",
         participants: "Participants",
