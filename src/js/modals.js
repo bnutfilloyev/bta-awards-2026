@@ -123,6 +123,11 @@ class ModalSystem {
         });
 
         if (response.ok) {
+          // Meta Pixel Lead tracking
+          if (typeof fbq !== 'undefined') {
+            fbq('track', 'Lead');
+          }
+          
           btn.textContent = '✓ Muvaffaqiyatli!';
           btn.classList.add('bg-green-500');
           
