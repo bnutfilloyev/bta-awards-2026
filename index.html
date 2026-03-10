@@ -31,6 +31,8 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
+    
+    // Initialize and track
     fbq('init', '928819816170360');
     fbq('track', 'PageView');
   </script>
@@ -42,6 +44,28 @@
   <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=928819816170360&ev=PageView&noscript=1"
   /></noscript>
+
+  <!-- Meta Pixel Form Tracking -->
+  <script>
+    (function() {
+      function trackLead() {
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead');
+          console.log('Meta Pixel: Lead tracked');
+        } else {
+          console.warn('Meta Pixel: fbq not loaded yet');
+        }
+      }
+      
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('form').forEach(function(form) {
+          form.addEventListener('submit', trackLead);
+        });
+      });
+      
+      window.trackLead = trackLead;
+    })();
+  </script>
 
   <!-- Loading Screen -->
   <div id="loader"
